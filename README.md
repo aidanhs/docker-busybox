@@ -6,7 +6,7 @@ like
 
     FROM aidanhs/chmod
     ADD <URL> /output
-    RUN chmod +x /output
+    RUN ["/chmod", "+x", "/output"]
 
 Building
 --------
