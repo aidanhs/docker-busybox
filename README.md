@@ -7,6 +7,7 @@ like
     FROM aidanhs/chmod
     ADD <URL> /output
     RUN ["/chmod", "+x", "/output"]
+    ENTRYPOINT ["/output"]
 
 Building
 --------
