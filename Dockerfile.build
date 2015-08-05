@@ -1,0 +1,12 @@
+FROM alpine:3.2
+
+RUN apk update && apk add build-base curl
+
+ENV VSN 1.23.2
+RUN curl -sLO http://busybox.net/downloads/busybox-$VSN.tar.bz2 && \
+    tar xjf busybox-$VSN.tar.bz2
+RUN cd busybox-$VSN && \
+    echo -e 'CONFIG_CHMOD=y\nCONFIG_STATIC=y' > chmod.config && \
+    make KCONFIG_ALLCONFIG=chmod.config allnoconfig && \
+    make busybox && \
+    cp busybox /chmod
