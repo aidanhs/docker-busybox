@@ -1,8 +1,12 @@
-docker-chmod
-============
+docker-busyboxes
+================
 
-Minimal image containing a statically linked chmod. Intended for use in a flow
-like
+Minimal images containing a statically linked binaries.
+
+aidanhs/chmod
+-------------
+
+Intended for use in a flow like
 
     FROM aidanhs/chmod
     ADD <URL> /output
@@ -13,8 +17,13 @@ like
 documentation for [`chmod` in busybox](http://www.busybox.net/downloads/BusyBox.html#chmod)
 if necessary.
 
+aidanhs/busybox
+---------------
+
+Full busybox binary at `/busybox`
+
 Building
 --------
 
-Run `make` to generate the required chmod binary which is committed into
+Run `make` to generate the required binaries that are committed into
 this repo.

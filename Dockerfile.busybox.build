@@ -1,0 +1,12 @@
+FROM alpine:3.7
+
+RUN apk update && apk add build-base linux-headers curl
+
+ENV VSN 1.28.3
+RUN curl -sLO http://busybox.net/downloads/busybox-$VSN.tar.bz2 && \
+    tar xjf busybox-$VSN.tar.bz2
+RUN cd busybox-$VSN && \
+    make defconfig && \
+    echo -e 'CONFIG_STATIC=y' >> .config && \
+    make busybox && \
+    cp busybox /busybox
